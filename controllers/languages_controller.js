@@ -52,7 +52,7 @@ languages.get(`/`, async (req, res)=>{
     }
     catch{error}{
         console.error(`Error`, error)
-        res.status(500).json(`error`, {error:error})
+        res.status().json(`error`, {error:error})
     }
 })
 
@@ -65,7 +65,7 @@ languages.get('/:name', (req, res) => {
         })
         .catch(error => {
             console.error('Error', error);
-            res.status(500).json({ error: error.message });
+            res.status().json({ error: error.message });
         });
 });
 

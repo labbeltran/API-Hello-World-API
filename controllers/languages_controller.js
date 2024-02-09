@@ -2,13 +2,11 @@ const express = require('express')
 const languages = express.Router()
 const Language= require(`./models/language.js`)
 
-//Middleware
-
 //Routes
 languages.get('/seed', async (req, res) => {
     try {
-        s
-        await Language.insertMany([
+        
+        const createdLanguages= await Language.insertMany([
             {
                 "name": "english",
                 "greeting": "Hello world",
@@ -42,7 +40,7 @@ languages.get('/seed', async (req, res) => {
         });
     } catch (error) {
         console.error('Error', error);
-        res.status(500).json({ error: error.message });
+        res.status().json({ error: error.message });
     }
 });
 
@@ -54,7 +52,7 @@ languages.get(`/`, async (req, res)=>{
     }
     catch{error}{
         console.error(`Error`, error)
-        res.status(500).render(`error`, {error:error})
+        res.status(500).json(`error`, {error:error})
     }
 })
 
